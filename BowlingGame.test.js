@@ -4,36 +4,40 @@ const Game = require("./BowlingGame");
 var game;
 
 const rollMany = (pins, n) => {
-	for (let i = 0; i < n; i++) {
-		game.roll(pins);
-	}
+  for (let i = 0; i < n; i++) {
+    game.roll(pins);
+  }
+};
+
+const rollSpare = () => {
+  game.roll(5);
+  game.roll(5);
 };
 
 describe("BowlingGame", () => {
-	beforeEach(() => {
-		game = new Game();
-	});
+  beforeEach(() => {
+    game = new Game();
+  });
 
-	describe("gutter game", () => {
-		it("should have score of 0", () => {
-			rollMany(0, 20);
-			expect(game.score()).to.equal(0);
-		});
-	});
+  describe("gutter game", () => {
+    it("should have score of 0", () => {
+      rollMany(0, 20);
+      expect(game.score()).to.equal(0);
+    });
+  });
 
-	describe("an all 1's game",() => {
-		it("should have score of 20",() => {
-			rollMany(1, 20);
-			expect(game.score()).to.equal(20);
-		});
-	});
-	describe("a game with one spare",() => {
-		it("should have higher multiplier",() => {
-			game.roll(5);
-			game.roll(5); // SPARE
-			game.roll(3);
-			rollMany(0, 17);
-			expect(game.score()).to.equal(16);
-		});
-	});
+  describe("an all 1's game", () => {
+    it("should have score of 20", () => {
+      rollMany(1, 20);
+      expect(game.score()).to.equal(20);
+    });
+  });
+  describe("a game with one spare", () => {
+    it("should have higher multiplier", () => {
+      rollSpare();
+      game.roll(3);
+      rollMany(0, 17);
+      expect(game.score()).to.equal(16);
+    });
+  });
 });
