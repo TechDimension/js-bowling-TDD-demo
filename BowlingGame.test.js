@@ -16,9 +16,7 @@ describe("BowlingGame", () => {
 
 	describe("gutter game", () => {
 		it("should have score of 0", () => {
-			let n = 20;
-			let pins = 0;
-			rollMany(0, n);
+			rollMany(0, 20);
 			expect(game.score()).to.equal(0);
 		});
 	});
