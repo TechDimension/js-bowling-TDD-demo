@@ -17,7 +17,7 @@ class Game {
         score += 10 + this.spareBonus(frameIndex);
         frameIndex += 2;
       } else {
-        score += this.rolls[frameIndex] + this.rolls[frameIndex + 1];
+        score += this.sumInFrame(frameIndex);
         frameIndex += 2;
       }
     }
@@ -32,6 +32,9 @@ class Game {
   }
   spareBonus(frameIndex) {
     return this.rolls[frameIndex + 2];
+  }
+  sumInFrame(frameIndex) {
+    return this.rolls[frameIndex] + this.rolls[frameIndex + 1];
   }
 }
 
