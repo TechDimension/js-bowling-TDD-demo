@@ -40,4 +40,13 @@ describe("BowlingGame", () => {
       expect(game.score()).to.equal(16);
     });
   });
+  describe("a game with one strike", () => {
+    it("should have higher multiplier", () => {
+      game.roll(10); // Strike
+      game.roll(3);
+      game.roll(4);
+      rollMany(0, 16);
+      expect(game.score()).to.equal(24);
+    });
+  });
 });
