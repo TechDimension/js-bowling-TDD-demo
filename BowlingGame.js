@@ -1,3 +1,5 @@
-class Game {}
+class Game {
+  roll(pins) {}
+}
 
 module.exports = Game;
