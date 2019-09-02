@@ -27,13 +27,13 @@ describe("BowlingGame", () => {
 			expect(game.score()).to.equal(20);
 		});
 	});
-	//describe("a game with one spare",() => {
-		//it("should have higher multiplier",() => {
-			//game.roll(5);
-			//game.roll(5); // SPARE
-			//game.roll(3);
-			//rollMany(0, 17);
-			//expect(game.score()).to.equal(16);
-		//});
-	//});
+	describe("a game with one spare",() => {
+		it("should have higher multiplier",() => {
+			game.roll(5);
+			game.roll(5); // SPARE
+			game.roll(3);
+			rollMany(0, 17);
+			expect(game.score()).to.equal(16);
+		});
+	});
 });
