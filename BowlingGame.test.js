@@ -14,6 +14,10 @@ const rollSpare = () => {
   game.roll(5);
 };
 
+const rollStrike = () => {
+  game.roll(10);
+};
+
 describe("BowlingGame", () => {
   beforeEach(() => {
     game = new Game();
@@ -42,7 +46,7 @@ describe("BowlingGame", () => {
   });
   describe("a game with one strike", () => {
     it("should have higher multiplier", () => {
-      game.roll(10); // Strike
+      rollStrike();
       game.roll(3);
       game.roll(4);
       rollMany(0, 16);
