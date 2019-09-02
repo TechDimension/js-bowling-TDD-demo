@@ -53,4 +53,10 @@ describe("BowlingGame", () => {
       expect(game.score()).to.equal(24);
     });
   });
+  describe("a perfect game", () => {
+    it("should yield a score of 300", () => {
+      rollMany(10, 12);
+      expect(game.score()).to.equal(300);
+    });
+  });
 });
