@@ -23,9 +23,7 @@ describe("BowlingGame", () => {
 
 	describe("an all 1's game",() => {
 		it("should have score of 20",() => {
-			for (let i = 0; i < 20; i++) {
-				game.roll(1);
-			}
+			rollMany(1, 20);
 			expect(game.score()).to.equal(20);
 		});
 	});
