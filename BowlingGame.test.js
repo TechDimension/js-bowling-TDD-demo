@@ -10,8 +10,10 @@ describe("BowlingGame", function() {
 
   describe("gutter game", function() {
     it("should have score of 0", function() {
-      for (let i = 0; i < 20; i++) {
-        game.roll(0);
+      let n = 20;
+      let pins = 0;
+      for (let i = 0; i < n; i++) {
+        game.roll(pins);
       }
       expect(game.score()).to.equal(0);
     });
