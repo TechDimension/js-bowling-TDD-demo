@@ -14,7 +14,7 @@ class Game {
         score += 10 + this.strikeBonus(frameIndex);
         frameIndex++;
       } else if (this.isSpare(frameIndex)) {
-        score += 10 + this.rolls[frameIndex + 2];
+        score += 10 + this.spareBonus(frameIndex);
         frameIndex += 2;
       } else {
         score += this.rolls[frameIndex] + this.rolls[frameIndex + 1];
@@ -29,6 +29,9 @@ class Game {
   }
   strikeBonus(frameIndex) {
     return this.rolls[frameIndex + 1] + this.rolls[frameIndex + 2];
+  }
+  spareBonus(frameIndex) {
+    return this.rolls[frameIndex + 2];
   }
 }
 
